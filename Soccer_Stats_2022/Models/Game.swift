@@ -17,6 +17,9 @@ struct Game: Identifiable, Codable {
     var notes: String
     var isFutsal: Bool
     
+    // TODO: Mark a game as a showcase or highlight, then you the list can be searched
+    
+    // MARK: Initializers
     init() {
         id = UUID().uuidString
         opponent = ""
@@ -37,6 +40,15 @@ struct Game: Identifiable, Codable {
         self.notes = notes
         self.isFutsal = isFutsal
     }
-
+    
+    var gameResult: String {
+        if ourScore > opponentScore {
+            return "W \(ourScore)-\(opponentScore)"
+        } else if ourScore < opponentScore {
+            return "L \(ourScore)-\(opponentScore)"
+        } else {
+            return "T \(ourScore)-\(opponentScore)"
+        }
+    }
 }
 

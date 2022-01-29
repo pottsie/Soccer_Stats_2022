@@ -40,5 +40,4 @@ struct Statistics: Identifiable, Codable {
 
     }
 
-    
 }

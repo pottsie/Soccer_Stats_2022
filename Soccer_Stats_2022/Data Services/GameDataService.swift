@@ -1,5 +1,5 @@
 //
-//  DataService.swift
+//  GameDataService.swift
 //  StatViewTest
 //
 //  Created by Michael Potts on 1/28/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DataService {
+class GameDataService {
     
     @Published var games: [Game] = []
     
