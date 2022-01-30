@@ -38,9 +38,9 @@ struct Game: Identifiable, Codable {
         dateOfGame = Date()
         ourScore = 0
         opponentScore = 0
-        notes = ""
+        notes = "Games notes"
         isFutsal = false
-        minutesPlayed = 0
+        minutesPlayed = 80
         goals = 0
         assists = 0
         shots = 0
@@ -85,10 +85,6 @@ struct Game: Identifiable, Codable {
         } else {
             return "T \(ourScore)-\(opponentScore)"
         }
-    }
-    
-    var passPercentage: String {
-        return "\((Double(passCompletions) / Double(passAttempts)).formatted(.percent))"
     }
 }
 

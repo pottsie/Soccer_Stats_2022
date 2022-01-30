@@ -9,14 +9,23 @@ import Foundation
 
 class GameDataService {
     
-    @Published var games: [Game] = []
+    @Published var games: [Game]
     
     init() {
-        getGames()
+        if LocalFileManager.instance.loadGames() == nil {
+            print("INITIALIZING NEW ARRAY")
+            self.games = []
+        } else {
+            print("LOADING GAMES FROM FILE")
+            self.games = LocalFileManager.instance.loadGames()!
+        }
     }
-    
-    private func getGames() {
-        games = LocalFileManager.getGames()
+
+    func saveGames(games: [Game]) {
+        LocalFileManager.instance.saveGames(games: games)
     }
-    
+
+    private func json() throws -> Data {
+        return try JSONEncoder().encode(games)
+    }
 }

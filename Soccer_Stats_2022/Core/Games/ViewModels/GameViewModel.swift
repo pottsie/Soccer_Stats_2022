@@ -26,17 +26,17 @@ class GameViewModel: ObservableObject {
     
     func saveGames() {
         sortGames()
-        // code for saving the games (link to GameDataService)
+        dataService.saveGames(games: games)
     }
     
     func deleteGame(indices: IndexSet) {
         games.remove(atOffsets: indices)
+        saveGames()
     }
     
     func addGame() {
         games.append(newGame)
         resetGame()
-        sortGames()
         saveGames()
     }
     
