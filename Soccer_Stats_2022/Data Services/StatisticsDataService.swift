@@ -7,17 +7,17 @@
 
 import Foundation
 
-class StatisticsDataService {
-    
-    @Published var stats: [Statistics] = []
-    
-    init() {
-        getStats()
-    }
-    
-    private func getStats() {
-        stats = LocalFileManager.getStats()
-    }
-
-    
-}
+//class StatisticsDataService {
+//    
+//    @Published var stats: [Statistics] = []
+//    
+//    init() {
+//        getStats()
+//    }
+//    
+//    private func getStats() {
+//        stats = LocalFileManager.getStats()
+//    }
+//
+//    
+//}

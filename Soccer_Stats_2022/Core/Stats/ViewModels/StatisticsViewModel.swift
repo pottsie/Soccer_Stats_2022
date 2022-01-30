@@ -7,13 +7,13 @@
 
 import Foundation
 
-class StatisticsViewModel: ObservableObject {
-    
-    private let dataService = StatisticsDataService()
-    
-    @Published var stats: [Statistics]
-    
-    init() {
-        stats = dataService.stats
-    }
-}
+//class StatisticsViewModel: ObservableObject {
+//    
+//    private let dataService = StatisticsDataService()
+//    
+////    @Published var stats: [Statistics]
+//    
+//    init() {
+////        stats = dataService.stats
+//    }
+//}

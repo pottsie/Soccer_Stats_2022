@@ -12,11 +12,12 @@ class GameViewModel: ObservableObject {
     private let dataService = GameDataService()
     
     @Published var games: [Game]
+    @Published var newGame: Game = Game()
     
     init() {
         games = dataService.games
     }
-    
+        
     // MARK: User Intents
     
     func sortGames() {
@@ -32,10 +33,15 @@ class GameViewModel: ObservableObject {
         games.remove(atOffsets: indices)
     }
     
-    func addGame(game: Game) {
-        games.append(game)
+    func addGame() {
+        games.append(newGame)
+        resetGame()
         sortGames()
         saveGames()
+    }
+    
+    func resetGame() {
+        newGame = Game()
     }
     
 }

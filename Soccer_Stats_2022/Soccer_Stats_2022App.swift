@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct Soccer_Stats_2022App: App {
     @StateObject private var gameVM = GameViewModel()
-    @StateObject private var statsVM = StatisticsViewModel()
+//    @StateObject private var statsVM = StatisticsViewModel()
     
     var body: some Scene {
         WindowGroup {
             GameListView()
                 .environmentObject(gameVM)
-                .environmentObject(statsVM)
+//                .environmentObject(statsVM)
         }
     }
 }

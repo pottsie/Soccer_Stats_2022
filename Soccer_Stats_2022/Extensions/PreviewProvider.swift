@@ -42,6 +42,18 @@ class DeveloperPreview {
         ourScore: 3,
         opponentScore: 2,
         notes: "These are notes on the game.",
-        isFutsal: false)
-    
+        isFutsal: false,
+        minutesPlayed: 75,
+        goals: 1,
+        assists: 2,
+        shots: 2,
+        shotsOnGoal: 1,
+        passAttempts: 7,
+        passCompletions: 6,
+        blocks: 1,
+        clearances: 2,
+        interceptions: 3,
+        goalsAllowed: 1,
+        shotsFaced: 4
+    )
 }

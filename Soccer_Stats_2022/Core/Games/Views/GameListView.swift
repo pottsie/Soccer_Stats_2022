@@ -18,7 +18,7 @@ struct GameListView: View {
             List {
                 ForEach(gameVM.games) { game in
                     NavigationLink {
-                        Text(game.opponent)
+                        GameDetailView(game: game)
                     } label: {
                         GameItemView(game: game)
                     }
@@ -38,6 +38,9 @@ struct GameListView: View {
                         Label("Add game", systemImage: "plus.circle")
                     }
                 }
+            }
+            .fullScreenCover(isPresented: $showNewGameSheet) {
+                AddGameView()
             }
             // TODO: Implement search for the list of games
 //            .searchable(text: $searchText)
