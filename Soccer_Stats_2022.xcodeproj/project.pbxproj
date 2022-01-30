@@ -15,6 +15,8 @@
 		2783C0D227A6EDE9002DBEFC /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783C0D127A6EDE9002DBEFC /* ProfileViewModel.swift */; };
 		2783C0D427A6EE6F002DBEFC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783C0D327A6EE6F002DBEFC /* ProfileView.swift */; };
 		2783C0D627A704DC002DBEFC /* EditPlayerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783C0D527A704DC002DBEFC /* EditPlayerProfileView.swift */; };
+		2783C0D827A716C6002DBEFC /* StatSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783C0D727A716C6002DBEFC /* StatSummaryView.swift */; };
+		2783C0DA27A718AD002DBEFC /* ScoringDataCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783C0D927A718AD002DBEFC /* ScoringDataCard.swift */; };
 		27C80CFF27A56DAC00ABCA1D /* Soccer_Stats_2022App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C80CFE27A56DAC00ABCA1D /* Soccer_Stats_2022App.swift */; };
 		27C80D0327A56DAF00ABCA1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C80D0227A56DAF00ABCA1D /* Assets.xcassets */; };
 		27C80D0627A56DAF00ABCA1D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27C80D0527A56DAF00ABCA1D /* Preview Assets.xcassets */; };
@@ -41,6 +43,8 @@
 		2783C0D127A6EDE9002DBEFC /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2783C0D327A6EE6F002DBEFC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2783C0D527A704DC002DBEFC /* EditPlayerProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPlayerProfileView.swift; sourceTree = "<group>"; };
+		2783C0D727A716C6002DBEFC /* StatSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatSummaryView.swift; sourceTree = "<group>"; };
+		2783C0D927A718AD002DBEFC /* ScoringDataCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringDataCard.swift; sourceTree = "<group>"; };
 		27C80CFB27A56DAC00ABCA1D /* Soccer_Stats_2022.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soccer_Stats_2022.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C80CFE27A56DAC00ABCA1D /* Soccer_Stats_2022App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Soccer_Stats_2022App.swift; sourceTree = "<group>"; };
 		27C80D0227A56DAF00ABCA1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 		27C80D2327A56EC100ABCA1D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2783C0D727A716C6002DBEFC /* StatSummaryView.swift */,
+				2783C0D927A718AD002DBEFC /* ScoringDataCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,7 +346,9 @@
 				2742B7A627A5F8DE00B117C8 /* StatSectionView.swift in Sources */,
 				27C80D1727A56E4200ABCA1D /* LocalFileManager.swift in Sources */,
 				2783C0C927A6BD5B002DBEFC /* HomeView.swift in Sources */,
+				2783C0DA27A718AD002DBEFC /* ScoringDataCard.swift in Sources */,
 				27C80D1827A56E4200ABCA1D /* GameViewModel.swift in Sources */,
+				2783C0D827A716C6002DBEFC /* StatSummaryView.swift in Sources */,
 				27C80D2F27A57DA900ABCA1D /* PreviewProvider.swift in Sources */,
 				2783C0D627A704DC002DBEFC /* EditPlayerProfileView.swift in Sources */,
 			);

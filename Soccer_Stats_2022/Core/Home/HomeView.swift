@@ -10,15 +10,15 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var gameVM: GameViewModel
     @EnvironmentObject private var profileVM: ProfileViewModel
+    @EnvironmentObject private var statsVM: StatisticsViewModel
 
-    
     var body: some View {
         TabView {
             GameListView()
                 .tabItem {
                     Label("Game List", systemImage: "list.number")
                 }
-            Text("Stats View")
+            StatSummaryView()
                 .tabItem {
                     Label("Stats", systemImage: "chart.bar")
                 }
@@ -35,6 +35,6 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
             .environmentObject(GameViewModel())
             .environmentObject(ProfileViewModel())
-
+            .environmentObject(StatisticsViewModel())
     }
 }
