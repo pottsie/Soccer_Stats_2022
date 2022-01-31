@@ -7,17 +7,21 @@
 
 import Foundation
 
-//class StatisticsDataService {
-//    
-//    @Published var stats: [Statistics] = []
-//    
-//    init() {
-//        getStats()
-//    }
-//    
-//    private func getStats() {
-//        stats = LocalFileManager.getStats()
-//    }
-//
-//    
-//}
+class ProfileDataService {
+    
+    @Published var profile: Profile
+    
+    init() {
+        if LocalFileManager.instance.loadProfile() == nil {
+            self.profile = Profile()
+        } else {
+            self.profile = LocalFileManager.instance.loadProfile()!
+        }
+    }
+    
+    func saveProfile(profile: Profile) {
+        LocalFileManager.instance.saveProfile(profile: profile)
+    }
+
+    
+}

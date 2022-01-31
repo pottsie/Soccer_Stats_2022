@@ -14,10 +14,10 @@ struct AddGameView: View {
     
     var body: some View {
         VStack {
-            Text("Add New Game")
-                .font(.largeTitle)
-                .bold()
-                .padding(.top)
+//            Text("Add New Game")
+//                .font(.largeTitle)
+//                .bold()
+//                .padding(.top)
             Form {
                 Section {
                     TextField(text: $gameVM.newGame.opponent, prompt: Text("Opponent")) {

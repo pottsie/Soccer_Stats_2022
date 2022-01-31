@@ -17,10 +17,10 @@ struct StatSectionView: View {
         HStack {
             VStack {
                 Text(header1.uppercased())
-                    .font(.subheadline)
+                    .font(.caption)
                     .foregroundColor(Color.theme.secondaryText)
                 Text("\(stat1)")
-                    .font(.title2)
+                    .font(.title3)
                     .foregroundColor(Color.theme.primaryText)
                     .fontWeight(.heavy)
             }
@@ -31,10 +31,10 @@ struct StatSectionView: View {
             VStack {
                 if header2 != nil {
                     Text(header2!.uppercased())
-                        .font(.subheadline)
+                        .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
                     Text("\(stat2!)")
-                        .font(.title2)
+                        .font(.title3)
                         .foregroundColor(Color.theme.primaryText)
                         .fontWeight(.heavy)
                     

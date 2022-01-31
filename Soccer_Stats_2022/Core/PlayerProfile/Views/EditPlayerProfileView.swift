@@ -14,18 +14,21 @@ struct EditPlayerProfileView: View {
     @State var showPhotoPicker: Bool = false
     
     var body: some View {
-        VStack {
-            imageSelectionSection
-                .padding(.vertical)
-//                .sheet(isPresented: $showPhotoPicker) {
-//                    PhotoPicker(profileImage: $playerVM.profileImage)
-//                }
-            Form {
-                soccerDataSection
-                contactDataSection
-                buttonSection
+        NavigationView {
+            VStack {
+                imageSelectionSection
+                    .padding(.top, 35)
+                    .sheet(isPresented: $showPhotoPicker) {
+                        PhotoPicker(profileImage: $profileVM.profileImage)
+                    }
+                Form {
+                    soccerDataSection
+                    contactDataSection
+                    buttonSection
+                }
+                Spacer()
             }
-            Spacer()
+            .navigationBarHidden(true)
         }
     }
 }
@@ -33,6 +36,7 @@ struct EditPlayerProfileView: View {
 struct EditPlayerProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditPlayerProfileView()
+            .preferredColorScheme(.dark)
             .environmentObject(ProfileViewModel())
 
     }
@@ -42,7 +46,7 @@ extension EditPlayerProfileView {
     var buttonSection: some View {
         Section {
             Button {
-//                playerVM.updateProfileInformation()
+                profileVM.saveProfile()
                 dismiss()
             } label: {
                 Text("Save Changes")
@@ -57,7 +61,7 @@ extension EditPlayerProfileView {
     
     var imageSelectionSection: some View {
         HStack {
-            PlayerImageView(size: 100, image: nil)
+            PlayerImageView(size: 100, image: profileVM.profileImage)
                 .onTapGesture {
                     showPhotoPicker.toggle()
                 }

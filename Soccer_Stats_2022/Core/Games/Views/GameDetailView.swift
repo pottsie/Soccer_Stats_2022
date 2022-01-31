@@ -9,35 +9,37 @@ import SwiftUI
 
 struct GameDetailView: View {
     @EnvironmentObject private var gameVM: GameViewModel
-        
+    
     @State var game: Game
     @State var isGoalie: Bool = true
-
+    
     var body: some View {
-        VStack(spacing: 15) {
-            
-            gameInformation
-            StatSectionView(header1: "Minutes Played", stat1: game.minutesPlayed, header2: nil, stat2: nil)
-            StatSectionView(header1: "Goals", stat1: game.goals, header2: "Assists", stat2: game.assists)
-            StatSectionView(header1: "Shots", stat1: game.shots, header2: "Shots on Goal", stat2: game.shotsOnGoal)
-            StatSectionView(header1: "Pass Att", stat1: game.passAttempts, header2: "Pass Comp", stat2: game.passCompletions)
-            StatSectionView(header1: "Blocks", stat1: game.blocks, header2: "Clearances", stat2: game.clearances)
-            StatSectionView(header1: "Interceptions", stat1: game.interceptions, header2: nil, stat2: nil)
-            
-            if isGoalie {
-                StatSectionView(header1: "Shots Faced", stat1: game.shotsFaced, header2: "Goals Allowed", stat2: game.goalsAllowed)
+        ScrollView {
+            VStack(spacing: 15) {
+                
+                gameInformation
+                StatSectionView(header1: "Minutes Played", stat1: game.minutesPlayed, header2: nil, stat2: nil)
+                StatSectionView(header1: "Goals", stat1: game.goals, header2: "Assists", stat2: game.assists)
+                StatSectionView(header1: "Shots", stat1: game.shots, header2: "Shots on Goal", stat2: game.shotsOnGoal)
+                StatSectionView(header1: "Pass Att", stat1: game.passAttempts, header2: "Pass Comp", stat2: game.passCompletions)
+                StatSectionView(header1: "Blocks", stat1: game.blocks, header2: "Clearances", stat2: game.clearances)
+                StatSectionView(header1: "Interceptions", stat1: game.interceptions, header2: nil, stat2: nil)
+                
+                if isGoalie {
+                    StatSectionView(header1: "Shots Faced", stat1: game.shotsFaced, header2: "Goals Allowed", stat2: game.goalsAllowed)
+                }
+                
+                gameNotes
+                
+                Spacer()
             }
-
-            gameNotes
-            
-            Spacer()
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    //
-                } label: {
-                    Label("Share", systemImage: "square.and.arrow.up")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        //
+                    } label: {
+                        Label("Share", systemImage: "square.and.arrow.up")
+                    }
                 }
             }
         }
@@ -59,19 +61,19 @@ extension GameDetailView {
         Group {
             VStack(alignment: .leading) {
                 Text("Opponent".uppercased())
-                    .font(.subheadline)
+                    .font(.caption)
                     .foregroundColor(Color.theme.secondaryText)
                 Text(game.opponent)
-                    .font(.title)
+                    .font(.title2)
                     .foregroundColor(Color.theme.primaryText)
                     .fontWeight(.black)
             }
-            VStack(alignment: .trailing) {
+            VStack(alignment: .leading) {
                 Text("Result".uppercased())
-                    .font(.subheadline)
+                    .font(.caption)
                     .foregroundColor(Color.theme.secondaryText)
                 Text(game.gameResult)
-                    .font(.title2)
+                    .font(.title3)
                     .foregroundColor(Color.theme.primaryText)
                     .fontWeight(.black)
             }
@@ -85,7 +87,7 @@ extension GameDetailView {
                 .font(.caption)
                 .foregroundColor(Color.theme.secondaryText)
             Text(game.notes)
-                .font(.headline)
+                .font(.subheadline)
                 .multilineTextAlignment(.leading)
                 .padding(7)
                 .frame(height: 100, alignment: .topLeading)

@@ -15,7 +15,7 @@ struct ProfileView: View {
         NavigationView {
             VStack {
                 
-                PlayerImageView(size: 175, image: nil)
+                PlayerImageView(size: 175, image: profileVM.profileImage)
                     .padding(.vertical)
                 
                 Text(profileVM.profile.fullName)
