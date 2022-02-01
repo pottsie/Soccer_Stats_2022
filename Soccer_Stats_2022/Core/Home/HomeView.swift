@@ -14,6 +14,10 @@ struct HomeView: View {
 
     var body: some View {
         TabView {
+            ProfileView()
+                .tabItem {
+                    Label("Player Profile", systemImage: "person.crop.square")
+                }
             GameListView()
                 .tabItem {
                     Label("Game List", systemImage: "list.number")
@@ -21,10 +25,6 @@ struct HomeView: View {
             StatSummaryView()
                 .tabItem {
                     Label("Stats", systemImage: "chart.bar")
-                }
-            ProfileView()
-                .tabItem {
-                    Label("Player Profile", systemImage: "person.crop.square")
                 }
         }
     }

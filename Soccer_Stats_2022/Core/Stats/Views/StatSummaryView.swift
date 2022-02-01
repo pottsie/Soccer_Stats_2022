@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StatSummaryView: View {
     @EnvironmentObject private var statsVM: StatisticsViewModel
+//    @State var showScoringData: Bool = false
     
     let columns: [GridItem] = [
         GridItem(.fixed(350), spacing: nil, alignment: nil)
@@ -17,7 +18,16 @@ struct StatSummaryView: View {
     var body: some View {
         NavigationView {
             LazyVGrid(columns: columns, spacing: 25) {
-                ScoringDataCard()
+                NavigationLink {
+                    PerGameStatsView()
+                } label: {
+                    ScoringDataCard()
+                }
+
+//                ScoringDataCard()
+//                    .onTapGesture {
+//                        $showScoringData.toggle()
+//                    }
             }
         }
     }

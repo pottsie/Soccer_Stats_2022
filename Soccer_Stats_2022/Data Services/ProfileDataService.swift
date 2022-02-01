@@ -12,16 +12,15 @@ class ProfileDataService {
     @Published var profile: Profile
     
     init() {
-        if LocalFileManager.instance.loadProfile() == nil {
-            self.profile = Profile()
-        } else {
-            self.profile = LocalFileManager.instance.loadProfile()!
-        }
+        guard
+            let returnedProfile = LocalFileManager.instance.loadProfile() else {
+                self.profile = Profile()
+                return
+            }
+        self.profile = returnedProfile
     }
     
     func saveProfile(profile: Profile) {
         LocalFileManager.instance.saveProfile(profile: profile)
     }
-
-    
 }

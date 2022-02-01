@@ -12,20 +12,18 @@ class GameDataService {
     @Published var games: [Game]
     
     init() {
-        if LocalFileManager.instance.loadGames() == nil {
-            print("INITIALIZING NEW ARRAY")
-            self.games = []
-        } else {
-            print("LOADING GAMES FROM FILE")
-            self.games = LocalFileManager.instance.loadGames()!
-        }
+        
+        guard
+            let returnedGames = LocalFileManager.instance.loadGames() else {
+                self.games = []
+                return
+                
+            }
+        
+        self.games = returnedGames
     }
 
     func saveGames(games: [Game]) {
         LocalFileManager.instance.saveGames(games: games)
-    }
-
-    private func json() throws -> Data {
-        return try JSONEncoder().encode(games)
-    }
+    }    
 }

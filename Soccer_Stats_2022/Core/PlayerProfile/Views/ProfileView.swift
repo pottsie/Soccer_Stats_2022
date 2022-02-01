@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     @EnvironmentObject private var profileVM: ProfileViewModel
     @State var showEditProfileView: Bool = false
+    @State var showSettingsView: Bool = false
     
     var body: some View {
         NavigationView {
@@ -23,9 +24,9 @@ struct ProfileView: View {
                     .fontWeight(.black)
                     .foregroundColor(Color.theme.primaryText)
                 Group {
-                Text(profileVM.profile.team)
-                Text(profileVM.profile.position)
-                Text("#\(profileVM.profile.jerseyNumber)")
+                    Text(profileVM.profile.team)
+                    Text(profileVM.profile.position)
+                    Text("#\(profileVM.profile.jerseyNumber)")
                 }
                 .foregroundColor(Color.theme.secondaryText)
                 
@@ -123,6 +124,9 @@ struct ProfileView: View {
             .fullScreenCover(isPresented: $showEditProfileView, content: {
                 EditPlayerProfileView()
             })
+            .fullScreenCover(isPresented: $showSettingsView, content: {
+                SettingsView()
+            })
             .navigationTitle("Player Profile")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -134,7 +138,7 @@ struct ProfileView: View {
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        //
+                        showSettingsView.toggle()
                     } label: {
                         Label("Settings", systemImage: "gear")
                     }
