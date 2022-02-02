@@ -18,7 +18,7 @@ class StatisticsViewModel: ObservableObject {
         
     }
     
-    private func numberOfGamesPlayed(games: [Game]) -> Int {
+    func numberOfGamesPlayed(games: [Game]) -> Int {
         return games.count
     }
     
@@ -60,6 +60,14 @@ class StatisticsViewModel: ObservableObject {
             return 0.0
         } else {
             return Double(cumulativeValue(for: stat, in: games)) / Double(cumulativeValue(for: .minutesPlayed, in: games)) * 80.0
+        }
+    }
+    
+    func calculateEfficiency(numerator: Int, denominator: Int) -> Double {
+        if denominator != 0 {
+            return Double(numerator) / Double(denominator)
+        } else {
+            return 0.0
         }
     }
 

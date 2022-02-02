@@ -59,6 +59,30 @@ struct PassingDataCard: View {
                         .fontWeight(.heavy)
                 }
             }
+            HStack {
+                VStack(alignment: .leading) {
+                    Text("Passing Efficiency".uppercased())
+                        .font(.caption)
+                        .foregroundColor(Color.theme.secondaryText)
+
+                    Text(statsVM.calculateEfficiency(
+                        numerator: statsVM.cumulativeValue(for: .passCompletions, in: gameVM.games),
+                        denominator: statsVM.cumulativeValue(for: .passAttempts, in: gameVM.games)).asPercentString())
+                        .font(.title3)
+                        .fontWeight(.heavy)
+                }
+                Spacer()
+//                VStack(alignment: .trailing) {
+//                    Text("Avg per Game".uppercased())
+//                        .font(.caption)
+//                        .foregroundColor(Color.theme.secondaryText)
+//
+//                    Text(statsVM.perGameAverage(for: .passCompletions, in: gameVM.games).asAverageString())
+//                        .font(.title3)
+//                        .fontWeight(.heavy)
+//                }
+            }
+
             Text("Averages are normalized for 80 minute games")
                 .font(.subheadline)
                 .italic()

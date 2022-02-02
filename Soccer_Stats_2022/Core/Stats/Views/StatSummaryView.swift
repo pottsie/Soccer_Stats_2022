@@ -17,20 +17,27 @@ struct StatSummaryView: View {
     
     var body: some View {
         NavigationView {
-            LazyVGrid(columns: columns, spacing: 35) {
-                NavigationLink {
-                    PerGameStatsView()
-                } label: {
-                    ScoringDataCard()
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 35) {
+                    NavigationLink {
+                        PerGameStatsView()
+                    } label: {
+                        GameDataCard()
+                    }
+                    NavigationLink {
+                        PerGameStatsView()
+                    } label: {
+                        ScoringDataCard()
+                    }
+                    NavigationLink {
+                        PerGameStatsView()
+                    } label: {
+                        PassingDataCard()
+                    }
+                    
                 }
-                NavigationLink {
-                    PerGameStatsView()
-                } label: {
-                    PassingDataCard()
-                }
-
+                .navigationTitle("Stat Summary")
             }
-            .navigationTitle("Stat Summary")
         }
     }
 }

@@ -1,38 +1,38 @@
 //
-//  ScoringDataCard.swift
+//  GameDataCard.swift
 //  Soccer_Stats_2022
 //
-//  Created by Michael Potts on 1/30/22.
+//  Created by Michael Potts on 2/2/22.
 //
 
 import SwiftUI
 
-struct ScoringDataCard: View {
+struct GameDataCard: View {
     @EnvironmentObject private var statsVM: StatisticsViewModel
     @EnvironmentObject private var gameVM: GameViewModel
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Scoring Data")
+            Text("Game Data")
                 .font(.title3)
                 .fontWeight(.heavy)
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Goals".uppercased())
+                    Text("Minutes Played".uppercased())
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .goals, in: gameVM.games))")
+                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed, in: gameVM.games))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("Assists".uppercased())
+                    Text("Games Played".uppercased())
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .assists, in: gameVM.games))")
+                    Text("\(statsVM.numberOfGamesPlayed(games: gameVM.games))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -44,25 +44,12 @@ struct ScoringDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text(statsVM.perGameAverage(for: .goals, in: gameVM.games).asAverageString())
+                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed, in: gameVM.games) / statsVM.numberOfGamesPlayed(games: gameVM.games))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
                 Spacer()
-                VStack(alignment: .trailing) {
-                    Text("Avg per Game".uppercased())
-                        .font(.caption)
-                        .foregroundColor(Color.theme.secondaryText)
-
-                    Text(statsVM.perGameAverage(for: .assists, in: gameVM.games).asAverageString())
-                        .font(.title3)
-                        .fontWeight(.heavy)
-                }
             }
-            Text("Averages are normalized for 80 minute games")
-                .font(.subheadline)
-                .italic()
-                .foregroundColor(Color.theme.secondaryText)
         }
         .foregroundColor(Color.theme.primaryText)
         .padding()
@@ -73,9 +60,9 @@ struct ScoringDataCard: View {
     }
 }
 
-struct ScoringDataCard_Previews: PreviewProvider {
+struct GameDataCard_Previews: PreviewProvider {
     static var previews: some View {
-        ScoringDataCard()
+        GameDataCard()
             .environmentObject(StatisticsViewModel())
             .environmentObject(GameViewModel())
     }

@@ -12,8 +12,8 @@ extension Double {
     private var percentFormatter: NumberFormatter {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 1
-        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
         return formatter
     }
     
@@ -24,8 +24,8 @@ extension Double {
     
     private var averageFormatter: NumberFormatter {
         let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 1
-        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
         return formatter
     }
 
