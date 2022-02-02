@@ -16,10 +16,10 @@ struct PerGameStatsView: View {
                 VStack(alignment: .leading) {
                     HStack {
                         Text("Date")
-                            .frame(width: 120)
+                            .frame(width: 120, alignment: .leading)
                         Text("Result")
                             .frame(width: 70)
-                        Text("Min Played")
+                        Text("Mins Played")
                             .frame(width: 90)
                         Text("Goals")
                             .frame(width: 70)

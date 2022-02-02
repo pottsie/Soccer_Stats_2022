@@ -1,42 +1,38 @@
 //
-//  ScoringDataCard.swift
+//  PassingDataCard.swift
 //  Soccer_Stats_2022
 //
-//  Created by Michael Potts on 1/30/22.
+//  Created by Michael Potts on 2/1/22.
 //
 
 import SwiftUI
 
-struct ScoringDataCard: View {
+struct PassingDataCard: View {
     @EnvironmentObject private var statsVM: StatisticsViewModel
     @EnvironmentObject private var gameVM: GameViewModel
     
-    func ggg() -> Int {
-        return statsVM.cumulativeValue(for: .goals, in: gameVM.games)
-    }
-
     var body: some View {
         VStack(spacing: 10) {
-            Text("Scoring Data")
+            Text("Passing Data")
                 .font(.title3)
                 .fontWeight(.heavy)
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Goals".uppercased())
+                    Text("Pass Attempts".uppercased())
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .goals, in: gameVM.games))")
+                    Text("\(statsVM.cumulativeValue(for: .passAttempts, in: gameVM.games))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
                 Spacer()
                 VStack(alignment: .trailing) {
-                    Text("Assists".uppercased())
+                    Text("Pass Completions".uppercased())
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .assists, in: gameVM.games))")
+                    Text("\(statsVM.cumulativeValue(for: .passCompletions, in: gameVM.games))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -48,7 +44,7 @@ struct ScoringDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text(statsVM.perGameAverage(for: .goals, in: gameVM.games).asAverageString())
+                    Text(statsVM.perGameAverage(for: .passAttempts, in: gameVM.games).asAverageString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -58,7 +54,7 @@ struct ScoringDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text(statsVM.perGameAverage(for: .assists, in: gameVM.games).asAverageString())
+                    Text(statsVM.perGameAverage(for: .passCompletions, in: gameVM.games).asAverageString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -77,9 +73,9 @@ struct ScoringDataCard: View {
     }
 }
 
-struct ScoringDataCard_Previews: PreviewProvider {
+struct PassingDataCard_Previews: PreviewProvider {
     static var previews: some View {
-        ScoringDataCard()
+        PassingDataCard()
             .environmentObject(StatisticsViewModel())
             .environmentObject(GameViewModel())
     }

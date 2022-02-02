@@ -19,7 +19,8 @@ struct ColorTheme {
     let primaryText = Color("PrimaryTextColor")
     let secondaryText = Color("SecondaryTextColor")
     let background = Color("BackgroundColor")
-//    let green = Color("GreenColor")
+    let cardBackground = Color("CardBackground")
+    let shadow = Color("ShadowColor")
 //    let blue = Color("BlueColor")
 //    let cardBackground = Color("CardBackgroundColor")
     
