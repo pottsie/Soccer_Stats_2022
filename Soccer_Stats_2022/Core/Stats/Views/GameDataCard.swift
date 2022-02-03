@@ -16,6 +16,7 @@ struct GameDataCard: View {
             Text("Game Data")
                 .font(.title3)
                 .fontWeight(.heavy)
+            
             HStack {
                 VStack(alignment: .leading) {
                     Text("Minutes Played".uppercased())
@@ -32,7 +33,7 @@ struct GameDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.numberOfGamesPlayed(games: gameVM.games))")
+                    Text("\(gameVM.numberOfGamesPlayed)")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -44,7 +45,7 @@ struct GameDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed, in: gameVM.games) / statsVM.numberOfGamesPlayed(games: gameVM.games))")
+                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed, in: gameVM.games) / gameVM.numberOfGamesPlayed)")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -56,14 +57,23 @@ struct GameDataCard: View {
         .frame(maxWidth: .infinity)
         .background(Color.theme.background)
         .cornerRadius(10)
-        .shadow(color: Color.theme.shadow, radius: 10, x: 0, y: 0)
+        .shadow(color: Color.theme.primaryText, radius: 10, x: 0, y: 0)
     }
 }
 
 struct GameDataCard_Previews: PreviewProvider {
     static var previews: some View {
+        Group {
         GameDataCard()
             .environmentObject(StatisticsViewModel())
             .environmentObject(GameViewModel())
+            .previewLayout(.sizeThatFits)
+            
+            GameDataCard()
+                .environmentObject(StatisticsViewModel())
+                .environmentObject(GameViewModel())
+                .previewLayout(.sizeThatFits)
+                .preferredColorScheme(.dark)
+        }
     }
 }

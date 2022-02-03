@@ -1,23 +1,23 @@
 //
-//  PassingDataCard.swift
+//  ShootingDataCard.swift
 //  Soccer_Stats_2022
 //
-//  Created by Michael Potts on 2/1/22.
+//  Created by Michael Potts on 2/2/22.
 //
 
 import SwiftUI
 
-struct PassingDataCard: View {
+struct ShootingDataCard: View {
     @EnvironmentObject private var statsVM: StatisticsViewModel
     @EnvironmentObject private var gameVM: GameViewModel
     
     var body: some View {
         VStack(spacing: 10) {
-            Text("Passing Data")
+            Text("Shooting Data")
                 .font(.title3)
                 .fontWeight(.heavy)
             
-            StatCumLineItem(titleLeft: "Pass Attempts", statLeft: .passAttempts, titleRight: "Pass Completions", statRight: .passCompletions)
+            StatCumLineItem(titleLeft: "Shots", statLeft: .shots, titleRight: "Shots on Goal", statRight: .shotsOnGoal)
 
             HStack {
                 VStack(alignment: .leading) {
@@ -25,7 +25,7 @@ struct PassingDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text(statsVM.perGameAverage(for: .passAttempts, in: gameVM.games).asAverageString())
+                    Text(statsVM.perGameAverage(for: .shots, in: gameVM.games).asAverageString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -35,20 +35,20 @@ struct PassingDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text(statsVM.perGameAverage(for: .passCompletions, in: gameVM.games).asAverageString())
+                    Text(statsVM.perGameAverage(for: .shotsOnGoal, in: gameVM.games).asAverageString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
             }
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Passing Efficiency".uppercased())
+                    Text("Shooting Efficiency".uppercased())
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
                     Text(statsVM.calculateEfficiency(
-                        numerator: statsVM.cumulativeValue(for: .passCompletions, in: gameVM.games),
-                        denominator: statsVM.cumulativeValue(for: .passAttempts, in: gameVM.games)).asPercentString())
+                        numerator: statsVM.cumulativeValue(for: .shotsOnGoal, in: gameVM.games),
+                        denominator: statsVM.cumulativeValue(for: .shots, in: gameVM.games)).asPercentString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -78,9 +78,9 @@ struct PassingDataCard: View {
     }
 }
 
-struct PassingDataCard_Previews: PreviewProvider {
+struct ShootingDataCard_Previews: PreviewProvider {
     static var previews: some View {
-        PassingDataCard()
+        ShootingDataCard()
             .environmentObject(StatisticsViewModel())
             .environmentObject(GameViewModel())
     }

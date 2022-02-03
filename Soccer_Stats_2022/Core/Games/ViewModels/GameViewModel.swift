@@ -13,9 +13,11 @@ class GameViewModel: ObservableObject {
     
     @Published var games: [Game]
     @Published var newGame: Game = Game()
+    @Published var numberOfGamesPlayed: Int
     
     init() {
         games = dataService.games
+        numberOfGamesPlayed = dataService.games.count
     }
         
     // MARK: User Intents
@@ -26,6 +28,7 @@ class GameViewModel: ObservableObject {
     
     func saveGames() {
         sortGames()
+        numberOfGamesPlayed = games.count
         dataService.saveGames(games: games)
     }
     

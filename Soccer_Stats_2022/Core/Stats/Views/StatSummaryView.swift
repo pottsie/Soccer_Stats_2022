@@ -32,6 +32,11 @@ struct StatSummaryView: View {
                     NavigationLink {
                         PerGameStatsView()
                     } label: {
+                        ShootingDataCard()
+                    }
+                    NavigationLink {
+                        PerGameStatsView()
+                    } label: {
                         PassingDataCard()
                     }
                     
