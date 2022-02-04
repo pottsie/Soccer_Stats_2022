@@ -47,8 +47,8 @@ struct ShootingDataCard: View {
                         .foregroundColor(Color.theme.secondaryText)
 
                     Text(statsVM.calculateEfficiency(
-                        numerator: statsVM.cumulativeValue(for: .shotsOnGoal, in: gameVM.games),
-                        denominator: statsVM.cumulativeValue(for: .shots, in: gameVM.games)).asPercentString())
+                        numerator: statsVM.cumulativeValue(for: .shotsOnGoal),
+                        denominator: statsVM.cumulativeValue(for: .shots)).asPercentString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }

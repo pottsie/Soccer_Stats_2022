@@ -9,6 +9,8 @@ import Foundation
 
 class GameDataService {
     
+    static let shared = GameDataService()
+    
     @Published var games: [Game]
     
     init() {

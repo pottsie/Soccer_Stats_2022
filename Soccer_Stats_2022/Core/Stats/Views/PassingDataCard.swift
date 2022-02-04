@@ -47,8 +47,8 @@ struct PassingDataCard: View {
                         .foregroundColor(Color.theme.secondaryText)
 
                     Text(statsVM.calculateEfficiency(
-                        numerator: statsVM.cumulativeValue(for: .passCompletions, in: gameVM.games),
-                        denominator: statsVM.cumulativeValue(for: .passAttempts, in: gameVM.games)).asPercentString())
+                        numerator: statsVM.cumulativeValue(for: .passCompletions),
+                        denominator: statsVM.cumulativeValue(for: .passAttempts)).asPercentString())
                         .font(.title3)
                         .fontWeight(.heavy)
                 }

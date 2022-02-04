@@ -24,7 +24,7 @@ struct StatCumLineItem: View {
                     .font(.caption)
                     .foregroundColor(Color.theme.secondaryText)
                 
-                Text("\(statsVM.cumulativeValue(for: statLeft, in: gameVM.games))")
+                Text("\(statsVM.cumulativeValue(for: statLeft))")
                     .font(.title3)
                     .fontWeight(.heavy)
             }
@@ -35,7 +35,7 @@ struct StatCumLineItem: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
                     
-                    Text("\(statsVM.cumulativeValue(for: statRight!, in: gameVM.games))")
+                    Text("\(statsVM.cumulativeValue(for: statRight!))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }

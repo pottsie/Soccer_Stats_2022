@@ -6,18 +6,28 @@
 //
 
 import Foundation
+import Combine
 
 class GameViewModel: ObservableObject {
     
-    private let dataService = GameDataService()
+    private let dataService = GameDataService.shared
+    private var cancellables = Set<AnyCancellable>()
     
-    @Published var games: [Game]
+    @Published var games: [Game] = []
     @Published var newGame: Game = Game()
-    @Published var numberOfGamesPlayed: Int
+    @Published var numberOfGamesPlayed: Int = 0
     
     init() {
-        games = dataService.games
+        addSubscriber()
         numberOfGamesPlayed = dataService.games.count
+    }
+    
+    func addSubscriber() {
+        dataService.$games
+            .sink { [weak self] (returnedGames) in
+                self?.games = returnedGames
+            }
+            .store(in: &cancellables)
     }
         
     // MARK: User Intents

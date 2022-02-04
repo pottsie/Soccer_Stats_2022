@@ -23,7 +23,7 @@ struct GameDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed, in: gameVM.games))")
+                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed))")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
@@ -45,7 +45,7 @@ struct GameDataCard: View {
                         .font(.caption)
                         .foregroundColor(Color.theme.secondaryText)
 
-                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed, in: gameVM.games) / gameVM.numberOfGamesPlayed)")
+                    Text("\(statsVM.cumulativeValue(for: .minutesPlayed) / gameVM.numberOfGamesPlayed)")
                         .font(.title3)
                         .fontWeight(.heavy)
                 }
