@@ -41,7 +41,21 @@ struct AddGameView: View {
                             Text("\(gameVM.newGame.opponentScore)")
                         }
                     }
-                    Toggle("Futsal game?", isOn: $gameVM.newGame.isFutsal)
+                    Picker(selection: $gameVM.newGame.gameType) {
+                        Text("Outdoor").tag(GameType.Outdoor)
+                        Text("Futsal").tag(GameType.Futsal)
+                    } label: {
+                        Text("Game Type")
+                    }
+                    .pickerStyle(.segmented)
+                    Stepper(value: $gameVM.newGame.gameLength, in: 40...90, step: 10) {
+                        HStack {
+                            Text("Game Length")
+                            Spacer()
+                            Text("\(gameVM.newGame.gameLength)")
+                        }
+                    }
+//                    Toggle("Futsal game?", isOn: $gameVM.newGame.isFutsal)
                     TextEditor(text: $gameVM.newGame.notes)
                         .frame(height: 100)
                 } header: {

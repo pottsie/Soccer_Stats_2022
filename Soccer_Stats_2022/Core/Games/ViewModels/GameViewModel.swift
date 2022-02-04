@@ -33,7 +33,7 @@ class GameViewModel: ObservableObject {
     // MARK: User Intents
     
     func sortGames() {
-        games.sort { $0.dateOfGame < $1.dateOfGame }
+        dataService.games.sort { $0.dateOfGame < $1.dateOfGame }
     }
     
     func saveGames() {
@@ -43,12 +43,12 @@ class GameViewModel: ObservableObject {
     }
     
     func deleteGame(indices: IndexSet) {
-        games.remove(atOffsets: indices)
+        dataService.games.remove(atOffsets: indices)
         saveGames()
     }
     
     func addGame() {
-        games.append(newGame)
+        dataService.games.append(newGame)
         resetGame()
         saveGames()
     }
