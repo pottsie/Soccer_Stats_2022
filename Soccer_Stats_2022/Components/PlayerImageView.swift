@@ -20,7 +20,7 @@ struct PlayerImageView: View {
             .clipShape(Circle())
             .frame(width: CGFloat(size), height: CGFloat(size))
             .overlay(Circle().stroke(lineWidth: 3))
-            .shadow(color: Color.theme.primaryText, radius: 10, x: 0, y: 0)
+            .shadow(color: Color.theme.shadow.opacity(0.5), radius: 10, x: 0, y: 0)
     }
 }
 

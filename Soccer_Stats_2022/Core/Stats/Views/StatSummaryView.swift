@@ -18,7 +18,7 @@ struct StatSummaryView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 35) {
+                LazyVGrid(columns: columns, spacing: 40) {
                     NavigationLink {
                         PerGameStatsView()
                     } label: {
@@ -39,7 +39,6 @@ struct StatSummaryView: View {
                     } label: {
                         PassingDataCard()
                     }
-                    
                 }
                 .navigationTitle("Stat Summary")
             }

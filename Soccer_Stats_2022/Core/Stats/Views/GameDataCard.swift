@@ -57,7 +57,7 @@ struct GameDataCard: View {
         .frame(maxWidth: .infinity)
         .background(Color.theme.background)
         .cornerRadius(10)
-        .shadow(color: Color.theme.primaryText, radius: 10, x: 0, y: 0)
+        .shadow(color: Color.theme.shadow.opacity(0.5), radius: 10, x: 0, y: 0)
     }
 }
 

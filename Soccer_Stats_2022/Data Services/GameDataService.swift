@@ -25,5 +25,5 @@ class GameDataService {
 
     func saveGames(games: [Game]) {
         LocalFileManager.instance.saveGames(games: games)
-    }    
+    }
 }
