@@ -15,32 +15,35 @@ struct GameListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(gameVM.games) { game in
-                    NavigationLink {
-                        GameDetailView(game: game)
-                    } label: {
-                        GameItemView(game: game)
+            VStack {
+                SearchBar(searchText: $gameVM.searchText)
+                List {
+                    ForEach(gameVM.games) { game in
+                        NavigationLink {
+                            GameDetailView(game: game)
+                        } label: {
+                            GameItemView(game: game)
+                        }
+                    }
+                    .onDelete(perform: gameVM.deleteGame)
+                }
+                .listStyle(PlainListStyle())
+                .navigationTitle("Games")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        EditButton()
+                    }
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            showNewGameSheet.toggle()
+                        } label: {
+                            Label("Add game", systemImage: "plus.circle")
+                        }
                     }
                 }
-                .onDelete(perform: gameVM.deleteGame)
+                .fullScreenCover(isPresented: $showNewGameSheet) {
+                    AddGameView()
             }
-            .listStyle(PlainListStyle())
-            .navigationTitle("Games")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        showNewGameSheet.toggle()
-                    } label: {
-                        Label("Add game", systemImage: "plus.circle")
-                    }
-                }
-            }
-            .fullScreenCover(isPresented: $showNewGameSheet) {
-                AddGameView()
             }
             // TODO: Implement search for the list of games
 //            .searchable(text: $searchText)

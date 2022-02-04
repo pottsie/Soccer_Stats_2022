@@ -22,6 +22,11 @@ struct GameItemView: View {
                 Text(game.dateOfGame.formatted(date: .abbreviated, time: .omitted))
                     .foregroundColor(Color.theme.secondaryText)
                     .italic()
+                Text(game.gameType.rawValue)
+                    .font(.subheadline)
+                    .foregroundColor(Color.theme.secondaryText)
+                    .italic()
+
             }
             Spacer()
             if isShowcaseGame {

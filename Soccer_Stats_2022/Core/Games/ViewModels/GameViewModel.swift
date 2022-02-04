@@ -16,6 +16,7 @@ class GameViewModel: ObservableObject {
     @Published var games: [Game] = []
     @Published var newGame: Game = Game()
     @Published var numberOfGamesPlayed: Int = 0
+    @Published var searchText: String = ""
     
     init() {
         addSubscriber()
