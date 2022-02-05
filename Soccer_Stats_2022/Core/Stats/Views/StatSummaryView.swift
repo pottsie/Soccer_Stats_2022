@@ -17,30 +17,44 @@ struct StatSummaryView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 40) {
-                    NavigationLink {
-                        PerGameStatsView()
-                    } label: {
-                        GameDataCard()
+            if !statsVM.games.isEmpty {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 40) {
+//                        NavigationLink {
+//                            PerGameStatsView()
+//                        } label: {
+                            GameDataCard()
+//                        }
+                        NavigationLink {
+                            PerGameStatsView()
+                        } label: {
+                            ScoringDataCard()
+                        }
+                        NavigationLink {
+                            PerGameStatsView()
+                        } label: {
+                            ShootingDataCard()
+                        }
+                        NavigationLink {
+                            PerGameStatsView()
+                        } label: {
+                            PassingDataCard()
+                        }
                     }
-                    NavigationLink {
-                        PerGameStatsView()
-                    } label: {
-                        ScoringDataCard()
-                    }
-                    NavigationLink {
-                        PerGameStatsView()
-                    } label: {
-                        ShootingDataCard()
-                    }
-                    NavigationLink {
-                        PerGameStatsView()
-                    } label: {
-                        PassingDataCard()
-                    }
+                    .navigationTitle("Stat Summary")
                 }
-                .navigationTitle("Stat Summary")
+            } else {
+                VStack {
+                    Text("No Game Data")
+                        .font(.title)
+                        .bold()
+                        .foregroundColor(Color.theme.primaryText)
+                        .padding()
+                    Text("Add a game to see your statistical data.")
+                        .font(.title3)
+                        .foregroundColor(Color.theme.secondaryText)
+                    Spacer()
+                }
             }
         }
     }
