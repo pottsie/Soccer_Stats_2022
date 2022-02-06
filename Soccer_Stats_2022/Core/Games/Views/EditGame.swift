@@ -1,13 +1,13 @@
 //
-//  AddGameView.swift
+//  EditGame.swift
 //  Soccer_Stats_2022
 //
-//  Created by Michael Potts on 1/29/22.
+//  Created by Michael Potts on 2/5/22.
 //
 
 import SwiftUI
 
-struct AddGameView: View {
+struct EditGame: View {
     @Binding var game: Game
     @EnvironmentObject private var gameVM: GameViewModel
     @Environment(\.dismiss) var dismiss
@@ -15,10 +15,6 @@ struct AddGameView: View {
     
     var body: some View {
         VStack {
-//            Text("Add New Game")
-//                .font(.largeTitle)
-//                .bold()
-//                .padding(.top)
             Form {
                 Section {
                     TextField(text: $game.opponent, prompt: Text("Opponent")) {
@@ -138,7 +134,9 @@ struct AddGameView: View {
                 }
                 Section {
                     Button {
-                        gameVM.addGame()
+//                        print(gameVM.games[index].opponent)
+                        
+//                        gameVM.saveGames()
                         dismiss()
                     } label: {
                         Text("Save Game")
@@ -154,9 +152,9 @@ struct AddGameView: View {
     }
 }
 
-struct AddGameView_Previews: PreviewProvider {
+struct EditGame_Previews: PreviewProvider {
     static var previews: some View {
-        AddGameView(game: .constant(Game()))
+        EditGame(game: .constant(Game()))
             .environmentObject(GameViewModel())
     }
 }

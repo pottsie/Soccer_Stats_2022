@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameDetailView: View {
     @EnvironmentObject private var gameVM: GameViewModel
-    
+    @State var isEditingGame: Bool = false
     @State var game: Game
     @State var isGoalie: Bool = true
     
@@ -41,7 +41,19 @@ struct GameDetailView: View {
                         Label("Share", systemImage: "square.and.arrow.up")
                     }
                 }
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    Button {
+//                        print("Editing Game")
+//                        isEditingGame.toggle()
+//                    } label: {
+//                        Label("Edit Gamme", systemImage: "pencil")
+//                    }
+//                }
             }
+//            .fullScreenCover(isPresented: $isEditingGame) {
+//                let index = gameVM.findIndexOfGame(gameID: game.id)
+//                EditGame(game: $gameVM.games[index])
+//            }
         }
     }
 }

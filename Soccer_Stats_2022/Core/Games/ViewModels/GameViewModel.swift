@@ -58,4 +58,8 @@ class GameViewModel: ObservableObject {
         newGame = Game()
     }
     
+    func findIndexOfGame(gameID: String) -> Int {
+        let index = self.games.firstIndex { $0.id == gameID }
+        return index ?? 0
+    }
 }

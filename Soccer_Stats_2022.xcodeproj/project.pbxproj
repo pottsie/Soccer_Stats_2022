@@ -42,6 +42,7 @@
 		27C80D2F27A57DA900ABCA1D /* PreviewProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C80D2E27A57DA900ABCA1D /* PreviewProvider.swift */; };
 		27C80D3127A5CACC00ABCA1D /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C80D3027A5CACC00ABCA1D /* GameDetailView.swift */; };
 		27CE135127A753B2001D427F /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27CE135027A753B2001D427F /* PhotoPicker.swift */; };
+		27EA356727AEEB0B009739DC /* EditGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EA356627AEEB0B009739DC /* EditGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		27C80D2E27A57DA900ABCA1D /* PreviewProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewProvider.swift; sourceTree = "<group>"; };
 		27C80D3027A5CACC00ABCA1D /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
 		27CE135027A753B2001D427F /* PhotoPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		27EA356627AEEB0B009739DC /* EditGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				27C80D2527A56FF300ABCA1D /* GameListView.swift */,
 				2742B7A727A6072A00B117C8 /* AddGameView.swift */,
 				27C80D3027A5CACC00ABCA1D /* GameDetailView.swift */,
+				27EA356627AEEB0B009739DC /* EditGame.swift */,
 				27C80D2C27A57D3A00ABCA1D /* GameItemView.swift */,
 				2742B7A527A5F8DE00B117C8 /* StatSectionView.swift */,
 			);
@@ -373,6 +376,7 @@
 				2782FABA27AA115A00D33AE4 /* PassingDataCard.swift in Sources */,
 				27C80D2627A56FF300ABCA1D /* GameListView.swift in Sources */,
 				27C80D1A27A56E4200ABCA1D /* GameDataService.swift in Sources */,
+				27EA356727AEEB0B009739DC /* EditGame.swift in Sources */,
 				2783C0CC27A6C075002DBEFC /* PlayerImageView.swift in Sources */,
 				27C80D3127A5CACC00ABCA1D /* GameDetailView.swift in Sources */,
 				27C80D1427A56E4200ABCA1D /* Game.swift in Sources */,

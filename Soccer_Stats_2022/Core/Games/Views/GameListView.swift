@@ -37,12 +37,12 @@ struct GameListView: View {
                         Button {
                             showNewGameSheet.toggle()
                         } label: {
-                            Label("Add game", systemImage: "plus.circle")
+                            Label("Add game", systemImage: "plus")
                         }
                     }
                 }
                 .fullScreenCover(isPresented: $showNewGameSheet) {
-                    AddGameView()
+                    AddGameView(game: $gameVM.newGame)
             }
             }
             // TODO: Implement search for the list of games
