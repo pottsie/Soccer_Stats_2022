@@ -35,9 +35,8 @@ struct GameItemView: View {
             }
             Text(game.gameResult)
                 .fontWeight(.heavy)
-                .foregroundColor(Color.theme.primaryText)
+                .foregroundColor(Color.theme.secondaryText)
         }
-        
     }
 }
 
