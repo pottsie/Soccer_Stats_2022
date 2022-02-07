@@ -35,7 +35,7 @@ struct Game: Identifiable, Codable {
     var blocks: Int
     var clearances: Int
     var interceptions: Int
-    var goalsAllowed: Int
+    var saves: Int
     var shotsFaced: Int
 
     // TODO: Mark a game as a showcase or highlight, then you the list can be searched
@@ -61,11 +61,11 @@ struct Game: Identifiable, Codable {
         blocks = 0
         clearances = 0
         interceptions = 0
-        goalsAllowed = 0
+        saves = 0
         shotsFaced = 0
     }
     
-    init(id: String, opponent: String, dateOfGame: Date, ourScore: Int, opponentScore: Int, notes: String, gameType: GameType, gameLength: Int, minutesPlayed: Int, goals: Int, assists: Int, shots: Int, shotsOnGoal: Int, passAttempts: Int, passCompletions: Int, blocks: Int, clearances: Int, interceptions: Int, goalsAllowed: Int, shotsFaced: Int) {
+    init(id: String, opponent: String, dateOfGame: Date, ourScore: Int, opponentScore: Int, notes: String, gameType: GameType, gameLength: Int, minutesPlayed: Int, goals: Int, assists: Int, shots: Int, shotsOnGoal: Int, passAttempts: Int, passCompletions: Int, blocks: Int, clearances: Int, interceptions: Int, saves: Int, shotsFaced: Int) {
         
         self.id = id
         self.opponent = opponent
@@ -86,7 +86,7 @@ struct Game: Identifiable, Codable {
         self.blocks = blocks
         self.clearances = clearances
         self.interceptions = interceptions
-        self.goalsAllowed = goalsAllowed
+        self.saves = saves
         self.shotsFaced = shotsFaced
     }
     
@@ -99,5 +99,30 @@ struct Game: Identifiable, Codable {
             return "T \(ourScore)-\(opponentScore)"
         }
     }
+    
+    var shootingPercentage: Int {
+        if self.shots > 0 {
+            return Int(Double(self.shotsOnGoal) / Double(self.shots) * 100.0 )
+        } else {
+            return 0
+        }
+    }
+    
+    var passingPercentage: Int {
+        if self.passAttempts > 0 {
+            return Int(Double(self.passCompletions) / Double(self.passAttempts) * 100.0 )
+        } else {
+            return 0
+        }
+    }
+    
+    var savePercentage: Int {
+        if self.shotsFaced > 0 {
+            return Int(Double(self.saves) / Double(self.shotsFaced) * 100.0 )
+        } else {
+            return 0
+        }
+    }
+
 }
 

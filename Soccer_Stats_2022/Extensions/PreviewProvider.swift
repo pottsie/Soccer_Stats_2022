@@ -55,7 +55,7 @@ class DeveloperPreview {
         blocks: 1,
         clearances: 2,
         interceptions: 3,
-        goalsAllowed: 1,
+        saves: 3,
         shotsFaced: 4
     )
 }
