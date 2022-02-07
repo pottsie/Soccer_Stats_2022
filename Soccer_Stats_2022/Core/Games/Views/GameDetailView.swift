@@ -18,21 +18,22 @@ struct GameDetailView: View {
             VStack(spacing: 15) {
                 
                 gameInformation
-                StatSectionView(header1: "Minutes Played", stat1: game.minutesPlayed, header2: nil, stat2: nil)
-                StatSectionView(header1: "Goals", stat1: game.goals, header2: "Assists", stat2: game.assists)
-                StatSectionView(header1: "Shots", stat1: game.shots, header2: "Shots on Goal", stat2: game.shotsOnGoal)
-                StatSectionView(header1: "Pass Att", stat1: game.passAttempts, header2: "Pass Comp", stat2: game.passCompletions)
-                StatSectionView(header1: "Blocks", stat1: game.blocks, header2: "Clearances", stat2: game.clearances)
-                StatSectionView(header1: "Interceptions", stat1: game.interceptions, header2: nil, stat2: nil)
+                StatSectionView(header1: "Minutes Played", stat1: game.minutesPlayed, header2: nil, stat2: nil, header3: nil, stat3: nil)
+                StatSectionView(header1: "Goals", stat1: game.goals, header2: "Assists", stat2: game.assists, header3: nil, stat3: nil)
+                StatSectionView(header1: "Shots", stat1: game.shots, header2: "SoG", stat2: game.shotsOnGoal, header3: "Shooting %", stat3: game.shootingPercentage)
+                StatSectionView(header1: "Pass Att", stat1: game.passAttempts, header2: "Pass Comp", stat2: game.passCompletions, header3: "Passing %", stat3: game.passingPercentage)
+                StatSectionView(header1: "Blocks", stat1: game.blocks, header2: "Clearances", stat2: game.clearances, header3: "Intercepts", stat3: game.interceptions)
+//                StatSectionView(header1: "Interceptions", stat1: game.interceptions, header2: nil, stat2: nil)
                 
                 if isGoalie {
-                    StatSectionView(header1: "Shots Faced", stat1: game.shotsFaced, header2: "Goals Allowed", stat2: game.goalsAllowed)
+                    StatSectionView(header1: "Shots Faced", stat1: game.shotsFaced, header2: "Saves", stat2: game.saves, header3: "Save %", stat3: game.savePercentage)
                 }
                 
                 gameNotes
                 
                 Spacer()
             }
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
@@ -102,7 +103,7 @@ extension GameDetailView {
                 .font(.subheadline)
                 .multilineTextAlignment(.leading)
                 .padding(7)
-                .frame(height: 100, alignment: .topLeading)
+                .frame(height: 150, alignment: .topLeading)
                 .frame(maxWidth: .infinity, alignment: .topLeading)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)

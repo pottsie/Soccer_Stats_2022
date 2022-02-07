@@ -59,7 +59,7 @@ class StatisticsViewModel: ObservableObject {
             case .interceptions:
                 totalValue += game.interceptions
             case .goalsAllowed:
-                totalValue += game.goalsAllowed
+                totalValue += game.saves
             case .shotsFaced:
                 totalValue += game.shotsFaced
             }
